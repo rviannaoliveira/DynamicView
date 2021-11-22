@@ -6,6 +6,13 @@ plugins {
 android {
     compileSdk 30
 
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
     defaultConfig {
         applicationId "com.github.rviannaoliveira.dynamicview"
         minSdk 21
