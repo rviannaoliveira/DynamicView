@@ -196,8 +196,7 @@ https://github.com/vivchar/RendererRecyclerViewAdapter
 
 https://github.com/GustavoHSSantorio (We worked in the initial solution)
 
-Thanks to these repositories that made me think of new ideas to generate a new library version
-
+Thanks to these repositories that made I think in new ideas to generate a new library version
 
 ## **License**
 
