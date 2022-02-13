@@ -2,9 +2,9 @@
 
 This library uses Server Driven Ui concepts to help develop screens on the Android platform
 
-If you want to know more details about this library see this [Paper](https://medium.com/@rodrigo.vianna.oliveira/ee1d6527e471) a explation about the use.
+If you want to know more details about this library see about [The Weapon Master Warrior - DynamicView ](https://medium.com/@rodrigo.vianna.oliveira/ee1d6527e471) a explation about the use.
 
-If you want to improve the use from the DynamicView see this [Paper](https://medium.com/@rodrigo.vianna.oliveira/6fa4b94d8618)
+If you want to improve the use from the DynamicView see about [D&D - Perfect Party to your Application Android](https://medium.com/@rodrigo.vianna.oliveira/6fa4b94d8618)
 
 ## Setup
 
