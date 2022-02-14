@@ -1,6 +1,6 @@
 # DynamicView
 
-This library uses Server Driven Ui concepts to help develop screens on the Android platform
+This library uses Server Driven Ui concepts to help developer to create screens on the Android platform
 
 If you want to know more details about this library see about [The Weapon Master Warrior - DynamicView ](https://medium.com/@rodrigo.vianna.oliveira/ee1d6527e471) a explation about the use.
 
