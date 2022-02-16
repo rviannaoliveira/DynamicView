@@ -59,7 +59,7 @@ class DynamicAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Dynamic 
     }
 
     /**
-     * Tke current SimpleVOs list
+     * Tke current SimpleProperties list
      */
     override fun getItemViewType(position: Int): Int {
         return differ.currentList.getOrNull(position)?.let {
