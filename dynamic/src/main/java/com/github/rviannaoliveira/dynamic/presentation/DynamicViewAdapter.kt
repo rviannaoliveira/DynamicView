@@ -1,14 +1,13 @@
-package com.github.rviannaoliveira.dynamic.adapter
+package com.github.rviannaoliveira.dynamic.presentation
 
 import android.util.SparseArray
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.util.forEach
-import androidx.core.util.valueIterator
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
-import com.github.rviannaoliveira.dynamic.adapter.renderes.EmptyViewHolder
-import com.github.rviannaoliveira.dynamic.adapter.renderes.ViewRenderer
+import com.github.rviannaoliveira.dynamic.presentation.renderes.EmptyViewHolder
+import com.github.rviannaoliveira.dynamic.presentation.renderes.ViewRenderer
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
 
 /**

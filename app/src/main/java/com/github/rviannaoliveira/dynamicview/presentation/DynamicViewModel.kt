@@ -3,8 +3,8 @@ package com.github.rviannaoliveira.dynamicview.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.github.rviannaoliveira.dynamic.adapter.DynamicView
-import com.github.rviannaoliveira.dynamic.adapter.renderes.DynamicViewListener
+import com.github.rviannaoliveira.dynamic.presentation.DynamicView
+import com.github.rviannaoliveira.dynamic.presentation.renderes.DynamicViewListener
 import com.github.rviannaoliveira.dynamic.domain.model.DynamicActionProperties
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepository

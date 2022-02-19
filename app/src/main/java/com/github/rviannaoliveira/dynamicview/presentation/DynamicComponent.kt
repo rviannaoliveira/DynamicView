@@ -1,7 +1,7 @@
 package com.github.rviannaoliveira.dynamicview.presentation
 
-import com.github.rviannaoliveira.dynamic.adapter.renderes.DynamicViewListener
-import com.github.rviannaoliveira.dynamic.adapter.renderes.ViewRenderer
+import com.github.rviannaoliveira.dynamic.presentation.renderes.DynamicViewListener
+import com.github.rviannaoliveira.dynamic.presentation.renderes.ViewRenderer
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
 import com.github.rviannaoliveira.dynamicview.components.ButtonComponentRender
 import com.github.rviannaoliveira.dynamicview.components.TextViewComponentRender

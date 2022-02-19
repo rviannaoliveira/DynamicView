@@ -1,4 +1,4 @@
-package com.github.rviannaoliveira.dynamic.adapter.renderes
+package com.github.rviannaoliveira.dynamic.presentation.renderes
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

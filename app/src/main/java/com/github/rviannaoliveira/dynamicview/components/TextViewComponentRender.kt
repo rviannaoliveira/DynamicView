@@ -3,8 +3,8 @@ package com.github.rviannaoliveira.dynamicview.components
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.github.rviannaoliveira.dynamic.adapter.renderes.DynamicViewListener
-import com.github.rviannaoliveira.dynamic.adapter.renderes.ViewRenderer
+import com.github.rviannaoliveira.dynamic.presentation.renderes.DynamicViewListener
+import com.github.rviannaoliveira.dynamic.presentation.renderes.ViewRenderer
 import com.github.rviannaoliveira.dynamic.domain.mapper.convertToVO
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
 import com.github.rviannaoliveira.dynamicview.presentation.DynamicComponent

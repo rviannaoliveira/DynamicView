@@ -1,6 +1,6 @@
-package com.github.rviannaoliveira.dynamic.adapter
+package com.github.rviannaoliveira.dynamic.presentation
 
-import com.github.rviannaoliveira.dynamic.adapter.renderes.ViewRenderer
+import com.github.rviannaoliveira.dynamic.presentation.renderes.ViewRenderer
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
 
 interface DynamicView {

@@ -6,8 +6,8 @@ import android.graphics.PorterDuff
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
-import com.github.rviannaoliveira.dynamic.adapter.renderes.DynamicViewListener
-import com.github.rviannaoliveira.dynamic.adapter.renderes.ViewRenderer
+import com.github.rviannaoliveira.dynamic.presentation.renderes.DynamicViewListener
+import com.github.rviannaoliveira.dynamic.presentation.renderes.ViewRenderer
 import com.github.rviannaoliveira.dynamic.domain.mapper.convertToVO
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
 import com.github.rviannaoliveira.dynamicview.presentation.DynamicComponent
