@@ -3,7 +3,7 @@ package com.github.rviannaoliveira.dynamicview.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.github.rviannaoliveira.dynamic.adapter.Dynamic
+import com.github.rviannaoliveira.dynamic.adapter.DynamicView
 import com.github.rviannaoliveira.dynamic.adapter.renderes.DynamicViewListener
 import com.github.rviannaoliveira.dynamic.domain.model.DynamicActionProperties
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class DynamicViewModel(
-    val dynamic: Dynamic,
+    val dynamic: DynamicView,
     val repository: DynamicRepository
 ) : BaseViewModel() {
     private val _analytics = MutableLiveData<String>()

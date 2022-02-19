@@ -3,8 +3,8 @@ package com.github.rviannaoliveira.dynamic.adapter
 import android.util.SparseArray
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.util.forEach
 import androidx.core.util.valueIterator
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.github.rviannaoliveira.dynamic.adapter.renderes.EmptyViewHolder
@@ -17,7 +17,7 @@ import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
  * https://medium.com/gustavo-santorio/android-dynamic-views-with-recyclerview-c2974c96a85f
  * Adapter that use viewRenders with type from ViewType
  */
-class DynamicAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Dynamic {
+class DynamicViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), DynamicView {
     /**
      * Helper for computing the difference between two lists via DiffUtil on a background thread
      */
@@ -28,7 +28,6 @@ class DynamicAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Dynamic 
      * List from Renderers to each component with SparseArray is intended to be more memory-efficient than a HashMap
      */
     private var renderers = SparseArray<ViewRenderer<RecyclerView.ViewHolder>>()
-    var bindingLiveData: MutableLiveData<Int>? = null
 
     /**
      * method that take each viewRenderer until viewType from DynamicComponent
@@ -37,7 +36,6 @@ class DynamicAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Dynamic 
         val holder = renderers.get(viewType)?.createViewHolder(parent) ?: EmptyViewHolder(
             FrameLayout(parent.context)
         )
-
         holder.itemView.layoutParams = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -52,7 +50,6 @@ class DynamicAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Dynamic 
      * Take the item reference that was set in DiffUtils
      */
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        bindingLiveData?.value = position
         differ.currentList.getOrNull(position)?.let { vo ->
             findRenderOrNull(vo.key)?.bindView(vo, holder, position)
         }
@@ -85,12 +82,6 @@ class DynamicAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Dynamic 
         renderers.forEach { registerRenderer(it) }
     }
 
-    override fun getRenderer(viewType: Int): ViewRenderer<RecyclerView.ViewHolder> =
-        renderers.get(viewType)
-
-    override fun getRenderers(): List<ViewRenderer<RecyclerView.ViewHolder>> =
-        renderers.valueIterator().asSequence().toList()
-
     override fun setViewObjectDiff(properties: List<SimpleProperties>) {
         differ.submitList(properties)
     }
@@ -107,31 +98,15 @@ class DynamicAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Dynamic 
         setViewObjectDiff(list.toList().toList() as List<SimpleProperties>)
     }
 
-    override fun notifyChanges(properties: List<SimpleProperties>) {
-        with(differ) {
-            submitList(properties)
-        }
-        notifyDataSetChanged()
-    }
-
-    override fun notifyItemChangeAt(position: Int, payload: Any) {
-        notifyItemChanged(position, payload)
-    }
-
-    override fun notifyItemChangeAt(position: Int) {
-        notifyItemChanged(position)
-    }
-
-    private inline fun iterateOnRenders(action: (ViewRenderer<RecyclerView.ViewHolder>) -> Unit) {
-        for (i in 0 until renderers.size()) {
-            val key = renderers.keyAt(i)
-            action(renderers.get(key))
-        }
+    override fun notifyItemChangeAt(position: Int, payload: Any?) {
+        payload?.let {
+            notifyItemChanged(position, payload)
+        } ?: notifyItemChanged(position)
     }
 
     private fun findRenderOrNull(key: String): ViewRenderer<RecyclerView.ViewHolder>? {
-        iterateOnRenders {
-            if (it.key == key) return it
+        renderers.forEach { _, value ->
+            if (value.key == key) return value
         }
         return null
     }

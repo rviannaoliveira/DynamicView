@@ -1,6 +1,6 @@
 package com.github.rviannaoliveira.dynamicview.di
 
-import com.github.rviannaoliveira.dynamic.adapter.DynamicAdapter
+import com.github.rviannaoliveira.dynamic.adapter.DynamicViewAdapter
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepository
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepositoryImpl
 import com.github.rviannaoliveira.dynamicview.data.DynamicSampleService
@@ -21,7 +21,7 @@ object AppModule {
     val instance = module {
         viewModel {
             DynamicViewModel(
-                dynamic = DynamicAdapter(),
+                dynamic = DynamicViewAdapter(),
                 repository = get()
             )
         }

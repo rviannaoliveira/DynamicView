@@ -3,7 +3,7 @@ package com.github.rviannaoliveira.dynamicview.presentation
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.github.rviannaoliveira.dynamic.adapter.DynamicAdapter
+import com.github.rviannaoliveira.dynamic.adapter.DynamicViewAdapter
 import com.github.rviannaoliveira.dynamicview.databinding.ActivityDynamicComponentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -16,7 +16,7 @@ class DynamicComponentActivity : AppCompatActivity() {
         binding = ActivityDynamicComponentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.recycler.adapter = vm.dynamic as DynamicAdapter
+        binding.recycler.adapter = vm.dynamic as DynamicViewAdapter
         lifecycle.addObserver(vm)
 
         vm.deeplink.observe(this) {

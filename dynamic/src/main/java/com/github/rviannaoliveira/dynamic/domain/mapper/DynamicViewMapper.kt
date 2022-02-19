@@ -7,11 +7,11 @@ import com.fasterxml.jackson.databind.ObjectMapper
 inline fun <reified T : Any> Any?.convertToVO(): T =
         ObjectMapper().convertValue(this, T::class.java) as T
 
-fun List<SimplePropertiesResponse>.toListSimpleVO() = this.map {
-    it.toSimpleVO()
+fun List<SimplePropertiesResponse>.toListSimpleProperties() = this.map {
+    it.toSimpleProperties()
 }
 
-fun SimplePropertiesResponse.toSimpleVO() =
+fun SimplePropertiesResponse.toSimpleProperties() =
         SimpleProperties(
                 key = this.key,
                 value = this.value
