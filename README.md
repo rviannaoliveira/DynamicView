@@ -97,7 +97,7 @@ internal const val DYNAMIC = "Dynamic"
 ### 5. Create object `Properties` of according with your components for example:
 ```
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class ButtonProperties(
+data class TextProperties(
     @JsonProperty("xxx") val myProperties1: String,
     @JsonProperty("xxx") val myProperties2: String,
 )
