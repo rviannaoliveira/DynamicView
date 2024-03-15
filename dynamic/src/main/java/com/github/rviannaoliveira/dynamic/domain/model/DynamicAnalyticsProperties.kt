@@ -6,14 +6,14 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class DynamicAnalyticsProperties(
     @JsonProperty("category")
-    val category: String,
+    val category: String? = null,
 
     @JsonProperty("action")
-    val action: String,
+    val action: String? = null,
 
     @JsonProperty("label")
-    val label: String,
+    val label: String? = null,
 
     @JsonProperty("track")
-    val track: String,
+    val track: String? = null,
 )

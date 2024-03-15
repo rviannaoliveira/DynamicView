@@ -2,6 +2,7 @@ package com.github.rviannaoliveira.dynamicview.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.rviannaoliveira.dynamic.presentation.DynamicView
 import com.github.rviannaoliveira.dynamic.presentation.renderes.DynamicViewListener
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
 class DynamicViewModel(
     val dynamic: DynamicView,
     val repository: DynamicRepository
-) : BaseViewModel() {
+) : ViewModel() {
     private val _analytics = MutableLiveData<String>()
     val analytics: LiveData<String>
         get() = _analytics
@@ -25,8 +26,7 @@ class DynamicViewModel(
         get() = _deeplink
 
 
-    override fun onResume() {
-        super.onResume()
+    fun loadDynamic() {
         viewModelScope.launch {
             repository.getDynamic()
                 .catch {
@@ -39,7 +39,7 @@ class DynamicViewModel(
         }
     }
 
-    private fun setupDynamicRender(list : List<SimpleProperties>) {
+    private fun setupDynamicRender(list: List<SimpleProperties>) {
         dynamic.registerRenderers(list.toRenders {
             listener.invoke(it)
         })

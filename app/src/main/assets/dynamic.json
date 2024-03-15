@@ -1,0 +1,38 @@
+[
+  {
+    "key": "DynamicTextView",
+    "value": {
+      "text": "Knife",
+      "textColor": "#9A71F6"
+    }
+  },
+  {
+    "key": "DynamicTextView",
+    "value": {
+      "text": "Axe",
+      "textColor": "#D977EB"
+    }
+  },
+  {
+    "key": "DynamicTextView",
+    "value": {
+      "text": "Hammer",
+      "textColor": "#7FFF00"
+    }
+  },
+  {
+    "key": "DynamicButton",
+    "value": {
+      "text": "Some Action :)",
+      "textColorHex": "#9100a0",
+      "actionProperties": {
+        "deeplink": "dynamicview://any",
+        "analytics": {
+          "category": "hello",
+          "action": "world",
+          "label": "everywhere"
+        }
+      }
+    }
+  }
+]

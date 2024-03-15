@@ -11,6 +11,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -28,10 +29,8 @@ object AppModule {
 
         factory<DynamicRepository> {
             DynamicRepositoryImpl(
-                service = provideRetrofitClient(
-                    get(),
-                    get()
-                )
+                gson = get(),
+                context = androidContext()
             )
         }
 
@@ -43,9 +42,7 @@ object AppModule {
 
         single<Interceptor> {
             HttpLoggingInterceptor().apply {
-                level = if (BuildConfig.DEBUG)
-                    HttpLoggingInterceptor.Level.BODY else
-                    HttpLoggingInterceptor.Level.NONE
+                level = HttpLoggingInterceptor.Level.BODY
             }
         }
 
@@ -61,7 +58,7 @@ object AppModule {
         gson: Gson
     ): DynamicSampleService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://demo9169908.mockable.io/")
+            .baseUrl("https://demo5700495.mockable.io/")
             .client(oktHttpClient.build())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.github.rviannaoliveira.dynamic.presentation.DynamicViewAdapter
-import com.github.rviannaoliveira.dynamicview.databinding.ActivityDynamicComponentBinding
+import com.github.rviannaoliveira.dynamicview.app.databinding.ActivityDynamicComponentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DynamicComponentActivity : AppCompatActivity() {
@@ -17,7 +17,6 @@ class DynamicComponentActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.recycler.adapter = vm.dynamic as DynamicViewAdapter
-        lifecycle.addObserver(vm)
 
         vm.deeplink.observe(this) {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
@@ -26,5 +25,10 @@ class DynamicComponentActivity : AppCompatActivity() {
         vm.analytics.observe(this) {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        vm.loadDynamic()
     }
 }

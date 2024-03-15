@@ -1,6 +1,7 @@
 package com.github.rviannaoliveira.dynamicview
 
 import android.app.Application
+import com.github.rviannaoliveira.dynamicview.app.BuildConfig
 import com.github.rviannaoliveira.dynamicview.di.AppModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
