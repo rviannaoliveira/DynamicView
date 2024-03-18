@@ -1,6 +1,6 @@
 package com.github.rviannaoliveira.dynamicview.di
 
-import com.github.rviannaoliveira.dynamic.presentation.DynamicViewAdapter
+import com.github.rviannaoliveira.dynamic.presentation.render.DynamicViewAdapter
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepository
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepositoryImpl
 import com.github.rviannaoliveira.dynamicview.data.DynamicSampleService
@@ -10,7 +10,6 @@ import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.BuildConfig
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

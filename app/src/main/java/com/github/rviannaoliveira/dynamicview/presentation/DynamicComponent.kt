@@ -1,9 +1,12 @@
 package com.github.rviannaoliveira.dynamicview.presentation
 
-import com.github.rviannaoliveira.dynamic.presentation.renderes.DynamicViewListener
-import com.github.rviannaoliveira.dynamic.presentation.renderes.ViewRenderer
+import com.github.rviannaoliveira.dynamic.presentation.render.renderes.DynamicViewListener
+import com.github.rviannaoliveira.dynamic.presentation.render.renderes.ViewRenderer
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
+import com.github.rviannaoliveira.dynamic.presentation.builder.DynamicComposeBuilder
 import com.github.rviannaoliveira.dynamicview.components.ButtonComponentRender
+import com.github.rviannaoliveira.dynamicview.components.DynamicButtonCompose
+import com.github.rviannaoliveira.dynamicview.components.DynamicTextCompose
 import com.github.rviannaoliveira.dynamicview.components.TextViewComponentRender
 
 

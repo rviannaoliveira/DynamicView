@@ -1,4 +1,4 @@
-package com.github.rviannaoliveira.dynamic.presentation
+package com.github.rviannaoliveira.dynamic.presentation.render
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil

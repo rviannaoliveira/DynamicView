@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.github.rviannaoliveira.dynamic.presentation.DynamicView
-import com.github.rviannaoliveira.dynamic.presentation.renderes.DynamicViewListener
+import com.github.rviannaoliveira.dynamic.presentation.render.DynamicView
+import com.github.rviannaoliveira.dynamic.presentation.render.renderes.DynamicViewListener
 import com.github.rviannaoliveira.dynamic.domain.model.DynamicActionProperties
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepository
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class DynamicViewModel(

@@ -1,4 +1,4 @@
-package com.github.rviannaoliveira.dynamic.presentation
+package com.github.rviannaoliveira.dynamic.presentation.render
 
 import android.util.SparseArray
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import android.widget.FrameLayout
 import androidx.core.util.forEach
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
-import com.github.rviannaoliveira.dynamic.presentation.renderes.EmptyViewHolder
-import com.github.rviannaoliveira.dynamic.presentation.renderes.ViewRenderer
+import com.github.rviannaoliveira.dynamic.presentation.render.renderes.EmptyViewHolder
+import com.github.rviannaoliveira.dynamic.presentation.render.renderes.ViewRenderer
 import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
 
 /**

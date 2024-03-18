@@ -3,7 +3,7 @@ package com.github.rviannaoliveira.dynamicview.presentation
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.github.rviannaoliveira.dynamic.presentation.DynamicViewAdapter
+import com.github.rviannaoliveira.dynamic.presentation.render.DynamicViewAdapter
 import com.github.rviannaoliveira.dynamicview.app.databinding.ActivityDynamicComponentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
