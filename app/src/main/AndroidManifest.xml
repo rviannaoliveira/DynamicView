@@ -14,16 +14,17 @@
         <activity
             android:name="com.github.rviannaoliveira.dynamicview.presentation.DynamicComponentActivity"
             android:exported="true">
-        </activity>
-
-        <activity
-            android:name="com.github.rviannaoliveira.dynamicview.presentation.DynamicComposeActivity"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.github.rviannaoliveira.dynamicview.presentation.DynamicComposeActivity"
+            android:exported="true">
+
         </activity>
     </application>
 

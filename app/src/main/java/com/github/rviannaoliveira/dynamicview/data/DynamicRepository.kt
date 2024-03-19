@@ -1,10 +1,10 @@
 package com.github.rviannaoliveira.dynamicview.data
 
 import android.content.Context
-import com.github.rviannaoliveira.dynamic.data.SimplePropertiesResponse
-import com.github.rviannaoliveira.dynamic.domain.mapper.toListSimpleProperties
-import com.github.rviannaoliveira.dynamic.domain.model.SimpleProperties
-import com.github.rviannaoliveira.dynamic.loadJSONFromAsset
+import com.github.rviannaoliveira.dynamic.core.data.model.base.SimplePropertiesResponse
+import com.github.rviannaoliveira.dynamic.core.data.toListSimpleProperties
+import com.github.rviannaoliveira.dynamic.core.data.model.base.SimpleProperties
+import com.github.rviannaoliveira.dynamic.core.extensions.loadJSONFromAsset
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
