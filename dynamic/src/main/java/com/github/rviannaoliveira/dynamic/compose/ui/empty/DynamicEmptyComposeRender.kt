@@ -5,7 +5,7 @@ import com.github.rviannaoliveira.dynamic.core.data.model.base.SimpleProperties
 import com.github.rviannaoliveira.dynamic.compose.presentation.builder.DynamicComposeBuilder
 import com.github.rviannaoliveira.dynamic.core.presentation.DynamicViewListener
 
-class DynamicEmptyCompose : DynamicComposeBuilder(
+class DynamicEmptyComposeRender : DynamicComposeBuilder(
     ""
 ) {
     @Composable

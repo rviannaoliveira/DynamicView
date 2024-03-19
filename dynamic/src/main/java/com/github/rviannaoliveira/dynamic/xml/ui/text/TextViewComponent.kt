@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import com.github.rviannaoliveira.dynamic.core.data.model.text.TextProperties
 import com.github.rviannaoliveira.dynamic.core.domain.Align
-import com.github.rviannaoliveira.dynamic.core.domain.TextStyle
+import com.github.rviannaoliveira.dynamic.core.domain.DynamicTextStyle
 import com.github.rviannaoliveira.dynamic.core.extensions.getAttrColorRes
 import com.github.rviannaoliveira.dynamic.xml.ui.button.parseColor
 
@@ -89,10 +89,10 @@ class TextViewComponent @JvmOverloads constructor(
     }
 
 
-    private fun getTextStyle(textStyle: TextStyle) = when (textStyle) {
-        TextStyle.BOLD -> Typeface.BOLD
-        TextStyle.ITALIC -> Typeface.ITALIC
-        TextStyle.NORMAL -> Typeface.NORMAL
+    private fun getTextStyle(textStyle: DynamicTextStyle) = when (textStyle) {
+        DynamicTextStyle.BOLD -> Typeface.BOLD
+        DynamicTextStyle.ITALIC -> Typeface.ITALIC
+        DynamicTextStyle.NORMAL -> Typeface.NORMAL
     }
 
     class InternalLinkMovementMethod(
