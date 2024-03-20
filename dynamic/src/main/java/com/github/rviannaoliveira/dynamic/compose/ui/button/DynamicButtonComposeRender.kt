@@ -9,7 +9,7 @@ import com.github.rviannaoliveira.dynamic.core.presentation.DynamicComponent
 import com.github.rviannaoliveira.dynamic.core.presentation.DynamicViewListener
 
 class DynamicButtonComposeRender : DynamicComposeBuilder(
-    DynamicComponent.BUTTON_COMPONENT.key
+    key = DynamicComponent.BUTTON_COMPONENT.key
 ) {
     @Composable
     override fun buildCompose(model: SimpleProperties, listener: DynamicViewListener) {

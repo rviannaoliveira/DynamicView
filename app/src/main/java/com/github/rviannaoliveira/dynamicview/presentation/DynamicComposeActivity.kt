@@ -5,6 +5,8 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.lifecycle.lifecycleScope
 import com.github.rviannaoliveira.dynamic.compose.presentation.DynamicBuilders
 import com.github.rviannaoliveira.dynamic.core.data.model.base.SimpleProperties
@@ -24,8 +26,10 @@ class DynamicComposeActivity : AppCompatActivity() {
 
         setContent {
             MaterialTheme {
-                var properties = emptyList<SimpleProperties>()
-                lifecycleScope.launch {
+                var properties = remember {
+                    emptyList<SimpleProperties>()
+                }
+                LaunchedEffect(Unit) {
                     val getDynamic = repository.getDynamic()
                     properties = getDynamic.first()
                 }
@@ -34,7 +38,9 @@ class DynamicComposeActivity : AppCompatActivity() {
                 LazyColumn {
                     items(properties.size) { index ->
                         val model = properties[index]
-                        val builder = dynamicBuilder.getBuilder(model.key)
+                        val builder = remember {
+                            dynamicBuilder.getBuilder(model.key)
+                        }
                         builder.buildCompose(model = model) {
                             println(
                                 ">>>> category ${it.analytics?.category} -" +

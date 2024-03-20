@@ -6,7 +6,7 @@ import com.github.rviannaoliveira.dynamic.compose.presentation.builder.DynamicCo
 import com.github.rviannaoliveira.dynamic.core.presentation.DynamicViewListener
 
 class DynamicEmptyComposeRender : DynamicComposeBuilder(
-    ""
+    key = ""
 ) {
     @Composable
     override fun buildCompose(model: SimpleProperties, listener: DynamicViewListener) {

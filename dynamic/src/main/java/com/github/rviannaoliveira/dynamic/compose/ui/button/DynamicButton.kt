@@ -12,8 +12,8 @@ import com.github.rviannaoliveira.dynamic.core.data.model.text.TextProperties
 @Composable
 fun DynamicButton(
     buttonProperties: ButtonProperties,
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
     Row(
         horizontalArrangement = buttonProperties.align.toArrangementCompose()

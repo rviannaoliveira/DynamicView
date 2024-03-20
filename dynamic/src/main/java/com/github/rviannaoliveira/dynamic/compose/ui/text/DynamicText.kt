@@ -19,8 +19,8 @@ import com.github.rviannaoliveira.dynamic.xml.ui.button.parseColorCompose
 @Composable
 fun DynamicText(
     textProperties: TextProperties,
+    modifier: Modifier = Modifier,
     clickable: (() -> Unit)? = null,
-    modifier: Modifier = Modifier
 ) {
     val modifierCustom = clickable?.let {
         Modifier.clickable {
