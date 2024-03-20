@@ -48,20 +48,18 @@ class ButtonComponent @JvmOverloads constructor(
             setTextSize(TypedValue.COMPLEX_UNIT_SP, size.toFloat())
         }
 
-        buttonProperties.align?.let { align ->
-            when (align) {
-                Align.CENTER -> {
-                    gravity = Gravity.CENTER
-                }
+        buttonProperties.align.toGravity()
+    }
 
-                Align.LEFT -> {
-                    gravity = Gravity.LEFT
-                }
-
-                Align.RIGHT -> {
-                    gravity = Gravity.RIGHT
-                }
-            }
+    private fun Align?.toGravity() = when (this) {
+        Align.CENTER -> {
+            gravity = Gravity.CENTER
         }
+
+        Align.RIGHT -> {
+            gravity = Gravity.RIGHT
+        }
+
+        else -> gravity = Gravity.LEFT
     }
 }

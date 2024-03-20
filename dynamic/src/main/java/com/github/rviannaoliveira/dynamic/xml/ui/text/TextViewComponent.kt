@@ -43,24 +43,10 @@ class TextViewComponent @JvmOverloads constructor(
         }
 
         textProperties.textStyle?.let {
-            setTypeface(null, getTextStyle(it))
+            setTypeface(null, it.toTextStyle())
         }
 
-        textProperties.align?.let { align ->
-            when (align) {
-                Align.CENTER -> {
-                    gravity = Gravity.CENTER
-                }
-
-                Align.LEFT -> {
-                    gravity = Gravity.LEFT
-                }
-
-                Align.RIGHT -> {
-                    gravity = Gravity.RIGHT
-                }
-            }
-        }
+        textProperties.align.toGravity()
 
         textProperties.textHtml?.let { textHtml ->
             text = HtmlCompat.fromHtml(textHtml, HtmlCompat.FROM_HTML_MODE_COMPACT)
@@ -88,8 +74,19 @@ class TextViewComponent @JvmOverloads constructor(
         }
     }
 
+    private fun Align?.toGravity() = when (this) {
+        Align.CENTER -> {
+            gravity = Gravity.CENTER
+        }
 
-    private fun getTextStyle(textStyle: TextStyle) = when (textStyle) {
+        Align.RIGHT -> {
+            gravity = Gravity.RIGHT
+        }
+
+        else -> gravity = Gravity.LEFT
+    }
+
+    private fun TextStyle.toTextStyle() = when (this) {
         TextStyle.BOLD -> Typeface.BOLD
         TextStyle.ITALIC -> Typeface.ITALIC
         TextStyle.NORMAL -> Typeface.NORMAL
