@@ -31,10 +31,11 @@
     "key": "DynamicButton",
     "value": {
       "text": "Some Action :)",
-      "align": "RIGHT",
+      "align": "CENTER",
+      "fillMaxSize": false,
       "textAllCaps": true,
       "textSize": "20",
-      "textColorHex": "#060606",
+      "textColorHex": "#FFFFFF",
       "backgroundHex": "#2fa003",
       "actionProperties": {
         "deeplink": "dynamicview://any",

@@ -12,6 +12,7 @@ data class ButtonProperties(
     @JsonProperty("align") val align: Align? = null,
     @JsonProperty("textSize") val textSize: String? = null,
     @JsonProperty("textAllCaps") val textAllCaps: Boolean? = false,
+    @JsonProperty("fillMaxSize") val fillMaxSize: Boolean? = false,
     @JsonProperty("backgroundHex") val backgroundHex: String? = null,
     @JsonProperty("actionProperties") var actionProperties: DynamicActionProperties? = null,
 )
