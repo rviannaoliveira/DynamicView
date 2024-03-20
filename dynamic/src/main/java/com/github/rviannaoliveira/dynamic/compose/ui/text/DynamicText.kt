@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import androidx.core.text.HtmlCompat
-import com.github.rviannaoliveira.dynamic.compose.ui.getTextAlignCompose
-import com.github.rviannaoliveira.dynamic.compose.ui.getTextStyleCompose
+import com.github.rviannaoliveira.dynamic.compose.ui.toAlignCompose
+import com.github.rviannaoliveira.dynamic.compose.ui.toTextStyle
 import com.github.rviannaoliveira.dynamic.core.data.model.text.TextProperties
 import com.github.rviannaoliveira.dynamic.core.extensions.empty
 import com.github.rviannaoliveira.dynamic.xml.ui.button.parseColorCompose
@@ -19,36 +19,37 @@ import com.github.rviannaoliveira.dynamic.xml.ui.button.parseColorCompose
 @Composable
 fun DynamicText(
     textProperties: TextProperties,
-    clickable: (() -> Unit?)? = null
+    clickable: (() -> Unit)? = null,
+    modifier: Modifier = Modifier
 ) {
-    val modifier = clickable?.let {
+    val modifierCustom = clickable?.let {
         Modifier.clickable {
             clickable.invoke()
         }
-    } ?: Modifier
+    } ?: modifier
 
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = textProperties.backgroundHex.parseColorCompose()
     ) {
         Text(
-            modifier = modifier,
-            style = getTextStyleCompose(textProperties.textStyle).copy(
+            modifier = modifierCustom,
+            style = textProperties.textStyle.toTextStyle().copy(
                 fontSize = textProperties.textSize?.toFloat()?.sp ?: TextUnit.Unspecified,
             ),
             text = textProperties.textHtml?.let { html ->
                 HtmlCompat.fromHtml(
                     html, HtmlCompat.FROM_HTML_MODE_COMPACT
                 ).toString()
-            } ?: getText(textProperties),
+            } ?: textProperties.textWithRightCaps(),
             color = textProperties.textColorHex?.parseColorCompose() ?: Color.Unspecified,
-            textAlign = getTextAlignCompose(textProperties.align),
+            textAlign = textProperties.align.toAlignCompose(),
         )
     }
 }
 
-private fun getText(textProperties: TextProperties) = when (textProperties.textAllCaps) {
-    true -> textProperties.text?.uppercase()
-    false -> textProperties.text?.lowercase()
-    else -> textProperties.text
+private fun TextProperties.textWithRightCaps(): String = when (textAllCaps) {
+    true -> text?.uppercase()
+    false -> text?.lowercase()
+    else -> text
 } ?: String.empty()
