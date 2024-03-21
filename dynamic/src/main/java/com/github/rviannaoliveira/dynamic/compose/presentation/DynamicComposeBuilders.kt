@@ -5,15 +5,17 @@ import com.github.rviannaoliveira.dynamic.compose.ui.button.DynamicButtonCompose
 import com.github.rviannaoliveira.dynamic.compose.ui.empty.DynamicEmptyComposeRender
 import com.github.rviannaoliveira.dynamic.compose.ui.text.DynamicTextComposeRender
 
-class DynamicBuilders {
+class DynamicComposeBuilders {
     private val listDynamicBuilder: List<DynamicComposeBuilder> = listOf(
-        DynamicButtonComposeRender(), DynamicTextComposeRender()
+        DynamicButtonComposeRender(),
+        DynamicTextComposeRender()
     )
 
     fun getBuilder(
         key: String, customDynamicBuilderList: List<DynamicComposeBuilder> = emptyList()
-    ): DynamicComposeBuilder = (listDynamicBuilder + customDynamicBuilderList).find {
+    ): DynamicComposeBuilder = (listDynamicBuilder + customDynamicBuilderList)
+        .distinctBy { it.key }
+        .find {
         it.key == key
     } ?: DynamicEmptyComposeRender()
-
 }

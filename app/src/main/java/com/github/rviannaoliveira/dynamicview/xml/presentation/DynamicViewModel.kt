@@ -1,4 +1,4 @@
-package com.github.rviannaoliveira.dynamicview.presentation
+package com.github.rviannaoliveira.dynamicview.xml.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,14 +7,14 @@ import androidx.lifecycle.viewModelScope
 import com.github.rviannaoliveira.dynamic.core.data.model.action.DynamicActionProperties
 import com.github.rviannaoliveira.dynamic.core.data.model.base.SimpleProperties
 import com.github.rviannaoliveira.dynamic.core.presentation.DynamicViewListener
+import com.github.rviannaoliveira.dynamic.xml.presentation.DynamicBuilders
 import com.github.rviannaoliveira.dynamic.xml.presentation.DynamicView
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepository
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
 class DynamicViewModel(
-    val dynamic: DynamicView,
-    val repository: DynamicRepository
+    val dynamic: DynamicView, val repository: DynamicRepository
 ) : ViewModel() {
     private val _analytics = MutableLiveData<String>()
     val analytics: LiveData<String>
@@ -24,14 +24,11 @@ class DynamicViewModel(
     val deeplink: LiveData<String>
         get() = _deeplink
 
-
     fun loadDynamic() {
         viewModelScope.launch {
-            repository.getDynamic()
-                .catch {
+            repository.getDynamic().catch {
                     it.printStackTrace()
-                }
-                .collect {
+                }.collect {
                     setupDynamicRender(it)
                     dynamic.setViewObjectDiff(it)
                 }
@@ -39,8 +36,10 @@ class DynamicViewModel(
     }
 
     private fun setupDynamicRender(list: List<SimpleProperties>) {
-        dynamic.registerRenderers(list.toRenders {
-            listener.invoke(it)
+        dynamic.registerRenderers(DynamicBuilders().getBuilderRenders(
+            simpleProperties = list,
+        ) { action ->
+            listener.invoke(action)
         })
     }
 
