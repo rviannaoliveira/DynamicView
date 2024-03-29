@@ -276,6 +276,7 @@
       "text": "Some Action :)",
       "align": "RIGHT",
       "textAlign": "CENTER",
+      "fillMaxSize": false,
       "textAllCaps": true,
       "textSize": "20",
       "textColorHex": "#FFFFFF",
