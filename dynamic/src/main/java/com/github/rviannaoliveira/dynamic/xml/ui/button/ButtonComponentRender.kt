@@ -2,6 +2,7 @@ package com.github.rviannaoliveira.dynamic.xml.ui.button
 
 import android.graphics.Color.parseColor
 import android.view.ViewGroup
+import androidx.compose.ui.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import com.github.rviannaoliveira.dynamic.core.data.convertToVO
 import com.github.rviannaoliveira.dynamic.core.data.model.base.SimpleProperties
@@ -38,5 +39,13 @@ internal fun String.parseColor(): Int {
         parseColor(this)
     } catch (ex: Exception) {
         0
+    }
+}
+
+internal fun String?.parseColorCompose(): Color {
+    return try {
+        Color(parseColor(this))
+    } catch (ex: Exception) {
+        Color.Unspecified
     }
 }
