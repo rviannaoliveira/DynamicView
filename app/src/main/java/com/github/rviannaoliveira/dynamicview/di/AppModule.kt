@@ -1,10 +1,11 @@
 package com.github.rviannaoliveira.dynamicview.di
 
-import com.github.rviannaoliveira.dynamic.presentation.render.DynamicViewAdapter
+import com.github.rviannaoliveira.dynamic.xml.presentation.DynamicViewAdapter
+import com.github.rviannaoliveira.dynamicview.compose.presentation.DynamicComposeViewModel
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepository
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepositoryImpl
 import com.github.rviannaoliveira.dynamicview.data.DynamicSampleService
-import com.github.rviannaoliveira.dynamicview.presentation.DynamicViewModel
+import com.github.rviannaoliveira.dynamicview.xml.presentation.DynamicViewModel
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -22,6 +23,11 @@ object AppModule {
         viewModel {
             DynamicViewModel(
                 dynamic = DynamicViewAdapter(),
+                repository = get()
+            )
+        }
+        viewModel {
+            DynamicComposeViewModel(
                 repository = get()
             )
         }
