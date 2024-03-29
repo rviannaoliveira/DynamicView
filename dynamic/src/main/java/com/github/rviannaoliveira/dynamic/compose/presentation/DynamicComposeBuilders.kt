@@ -6,6 +6,7 @@ import com.github.rviannaoliveira.dynamic.compose.ui.empty.DynamicEmptyComposeRe
 import com.github.rviannaoliveira.dynamic.compose.ui.text.DynamicTextComposeRender
 
 class DynamicComposeBuilders {
+
     private val listDynamicBuilder: List<DynamicComposeBuilder> = listOf(
         DynamicButtonComposeRender(),
         DynamicTextComposeRender()

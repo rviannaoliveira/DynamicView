@@ -20,7 +20,9 @@ fun DynamicComposeController(
     LazyColumn(
         modifier
     ) {
-        items(properties.size) { index ->
+        items(
+            count = properties.size,
+          ) { index ->
             val model = properties[index]
             val builder = dynamicBuilder.getBuilder(model.key)
             builder.buildCompose(model = model) {
