@@ -1,4 +1,4 @@
-package com.github.rviannaoliveira.dynamicview.presentation
+package com.github.rviannaoliveira.dynamicview.xml.presentation
 
 import android.os.Bundle
 import android.widget.Toast

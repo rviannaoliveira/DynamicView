@@ -80,8 +80,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-
-
+    def lifecycle_version = "2.7.0"
+    // Lifecycle utilities for Compose
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version"
 
     def composeBom = platform'androidx.compose:compose-bom:2024.02.02'
     implementation(composeBom)
