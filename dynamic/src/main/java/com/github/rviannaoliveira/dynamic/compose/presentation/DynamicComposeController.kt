@@ -11,12 +11,9 @@ import com.github.rviannaoliveira.dynamic.core.data.model.base.SimpleProperties
 fun DynamicComposeController(
     properties: List<SimpleProperties>,
     modifier: Modifier = Modifier,
+    dynamicBuilder : DynamicComposeBuilders,
     onAction: (DynamicActionProperties) -> Unit
 ) {
-    val dynamicBuilder = remember {
-        DynamicComposeBuilders()
-    }
-
     LazyColumn(
         modifier
     ) {

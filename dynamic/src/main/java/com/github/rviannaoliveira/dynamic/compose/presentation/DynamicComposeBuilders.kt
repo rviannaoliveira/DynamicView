@@ -7,16 +7,31 @@ import com.github.rviannaoliveira.dynamic.compose.ui.text.DynamicTextComposeRend
 
 class DynamicComposeBuilders {
 
-    private val listDynamicBuilder: List<DynamicComposeBuilder> = listOf(
+    private val listDynamicBuilder = listOf(
         DynamicButtonComposeRender(),
         DynamicTextComposeRender()
     )
 
+    private val customBuilders = mutableListOf<DynamicComposeBuilder>()
+
+    fun addBuilderRenders(
+        customDynamicBuilderList: List<DynamicComposeBuilder>
+    ): DynamicComposeBuilders {
+        customBuilders.addAll(customDynamicBuilderList)
+        return this
+    }
+   fun addBuilderRender(
+        dynamicComposeBuilder: DynamicComposeBuilder
+    ): DynamicComposeBuilders {
+        customBuilders.add(dynamicComposeBuilder)
+        return this
+    }
+
     fun getBuilder(
-        key: String, customDynamicBuilderList: List<DynamicComposeBuilder> = emptyList()
-    ): DynamicComposeBuilder = (listDynamicBuilder + customDynamicBuilderList)
+        key: String
+    ): DynamicComposeBuilder = (listDynamicBuilder + customBuilders)
         .distinctBy { it.key }
         .find {
-        it.key == key
-    } ?: DynamicEmptyComposeRender()
+            it.key == key
+        } ?: DynamicEmptyComposeRender()
 }
