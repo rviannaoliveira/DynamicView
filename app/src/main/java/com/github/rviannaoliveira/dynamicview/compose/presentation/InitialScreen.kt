@@ -5,8 +5,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import com.github.rviannaoliveira.dynamic.compose.presentation.DynamicComposeBuilders
-import com.github.rviannaoliveira.dynamic.compose.presentation.DynamicComposeController
+import com.github.rviannaoliveira.dynamic.compose.presentation.builder.DynamicComposeBuilders
+import com.github.rviannaoliveira.dynamic.compose.presentation.ui.DynamicComposeController
 
 @Composable
 fun InitialScreen(

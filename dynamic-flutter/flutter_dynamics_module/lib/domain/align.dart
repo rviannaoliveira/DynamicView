@@ -1,0 +1,1 @@
+enum Align { center, left, right }

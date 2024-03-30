@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.github.rviannaoliveira.dynamic.core.data.model.action.DynamicActionProperties
 import com.github.rviannaoliveira.dynamic.core.data.model.base.SimpleProperties
 import com.github.rviannaoliveira.dynamic.core.presentation.DynamicViewListener
-import com.github.rviannaoliveira.dynamic.xml.presentation.DynamicBuilders
-import com.github.rviannaoliveira.dynamic.xml.presentation.DynamicView
+import com.github.rviannaoliveira.dynamic.xml.presentation.builder.DynamicBuilders
+import com.github.rviannaoliveira.dynamic.xml.presentation.ui.DynamicView
 import com.github.rviannaoliveira.dynamicview.data.DynamicRepository
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -36,7 +36,8 @@ class DynamicViewModel(
     }
 
     private fun setupDynamicRender(list: List<SimpleProperties>) {
-        dynamic.registerRenderers(DynamicBuilders().getBuilderRenders(
+        dynamic.registerRenderers(
+            DynamicBuilders().getBuilderRenders(
             simpleProperties = list,
         ) { action ->
             listener.invoke(action)
