@@ -6,5 +6,5 @@ import com.github.rviannaoliveira.dynamic.core.data.model.base.SimpleProperties
 
 abstract class DynamicComposeBuilder(val key: String) {
     @Composable
-    abstract fun buildCompose(model: SimpleProperties, listener: DynamicViewListener)
+    abstract fun craft(model: SimpleProperties, listener: DynamicViewListener)
 }
