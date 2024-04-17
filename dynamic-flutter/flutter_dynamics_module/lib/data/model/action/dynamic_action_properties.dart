@@ -1,7 +1,8 @@
-
 import 'dynamic_analytics_properties.dart';
 
 class DynamicActionProperties {
-  const DynamicActionProperties(
-      String? deeplink, DynamicAnalyticsProperties? analyticsProperties);
+  final String? deeplink;
+  final DynamicAnalyticsProperties? analyticsProperties;
+
+  const DynamicActionProperties(this.deeplink, this.analyticsProperties);
 }

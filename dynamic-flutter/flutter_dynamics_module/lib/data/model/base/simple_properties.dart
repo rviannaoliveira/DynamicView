@@ -3,7 +3,10 @@ import 'package:flutter_dynamics_module/presentation/builder/dynamic_builders.da
 import '../../../presentation/builder/dynamic_builder.dart';
 
 class SimpleProperties {
-  const SimpleProperties({required String key, required dynamic value});
+  final String key;
+  final dynamic value;
+
+  const SimpleProperties({required this.key, this.value});
 
   factory SimpleProperties.fromJson(dynamic properties) {
     String key = properties["key"];

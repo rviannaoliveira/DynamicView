@@ -6,7 +6,7 @@ import 'package:flutter_dynamics_module/presentation/ui/button/dynamic_button.da
 import '../../../data/model/button/button_properties.dart';
 
 class DynamicButtonBuilder extends DynamicBuilder<ButtonProperties> {
-  DynamicButtonBuilder() : super(key: "dynamicButton");
+  DynamicButtonBuilder() : super(key: key);
 
   @override
   Widget craft(ButtonProperties model, DynamicViewListener listener) {
@@ -32,5 +32,5 @@ class DynamicButtonBuilder extends DynamicBuilder<ButtonProperties> {
         actionProperties: properties["actionProperties"]);
   }
 
-  static String key = "dynamicButton";
+  static String key = "DynamicButton";
 }

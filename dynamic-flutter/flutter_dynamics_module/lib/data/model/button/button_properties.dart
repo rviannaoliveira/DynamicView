@@ -19,4 +19,5 @@ class ButtonProperties {
   final bool? fillMaxSize;
   final String? backgroundHex;
   final DynamicActionProperties? actionProperties;
+
 }
