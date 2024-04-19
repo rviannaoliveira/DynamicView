@@ -6,13 +6,11 @@ class SimpleProperties {
   final String key;
   final dynamic value;
 
-  const SimpleProperties({required this.key, this.value});
+  const SimpleProperties({required this.key, required this.value});
 
   factory SimpleProperties.fromJson(dynamic properties) {
-    String key = properties["key"];
-    DynamicBuilder builder = DynamicBuilders.getBuilder(key);
-
     return SimpleProperties(
-        key: key, value: builder.fromJson(properties["value"]));
+        key: properties["key"],
+        value: properties["value"]);
   }
 }

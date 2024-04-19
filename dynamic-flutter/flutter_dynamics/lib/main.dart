@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dynamics/main_state.dart';
 import 'package:flutter_dynamics_module/data/model/base/simple_properties.dart';
+import 'package:flutter_dynamics_module/flutter_dynamic_module.export.dart';
 import 'package:flutter_dynamics_module/presentation/builder/dynamic_builders.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -59,21 +60,15 @@ class _MyHomePageState extends State<MyHomePage> {
             case MainErrorState:
               return Text(_controller.state.toStateError().msg);
             case MainSuccessState:
-              final properties = _controller.state.toStateSuccess().properties;
-              return ListView.builder(
-                  itemCount: properties.length,
-                  itemBuilder: (context, index) {
-                    final SimpleProperties simpleProperties = properties[index];
-                    final dynamicBuilder =
-                        DynamicBuilders.getBuilder(simpleProperties.key);
-                    return dynamicBuilder
-                        .craft(dynamicBuilder.fromJson(simpleProperties.value),
-                            (actionProperties) {
-                      print(
-                          "categoria ${actionProperties.analyticsProperties?.category} "
-                          "label ${actionProperties.analyticsProperties?.label} - "
-                          "track ${actionProperties.analyticsProperties?.track}");
-                    });
+              final simplePropertiesList =
+                  _controller.state.toStateSuccess().properties;
+              return DynamicController(
+                  simplePropertiesList: simplePropertiesList,
+                  onAction: (actionProperties) {
+                    print(
+                        "categoria ${actionProperties.analyticsProperties?.category} "
+                        "label ${actionProperties.analyticsProperties?.label} - "
+                        "track ${actionProperties.analyticsProperties?.track}");
                   });
           }
           return Container();

@@ -24,11 +24,13 @@ abstract class MainControllerBase with Store {
         .loadString("assets/dynamic.json")
         .then((value) {
       List<dynamic> list = jsonDecode(value);
+
       state = MainSuccessState(
           properties: list.map((properties) {
-            return SimpleProperties.fromJson(properties);
-          }).toList());
+        return SimpleProperties.fromJson(properties);
+      }).toList());
     }).catchError((error, stacktrace) {
+      print(stacktrace.toString());
       state = MainErrorState(msg: stacktrace.toString());
     });
   }
