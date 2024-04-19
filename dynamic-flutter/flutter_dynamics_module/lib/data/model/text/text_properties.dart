@@ -1,13 +1,11 @@
-
 import '../action/dynamic_action_properties.dart';
 
-class ButtonProperties {
-  const ButtonProperties({
+class TextProperties {
+  const TextProperties({
     required this.text,
     this.textColorHex,
     this.textSize,
     this.textAllCaps,
-    this.fillMaxSize,
     this.backgroundHex,
     this.actionProperties
   });
@@ -16,8 +14,6 @@ class ButtonProperties {
   final String? textColorHex;
   final String? textSize;
   final bool? textAllCaps;
-  final bool? fillMaxSize;
   final String? backgroundHex;
   final DynamicActionProperties? actionProperties;
-
 }
