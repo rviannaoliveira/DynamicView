@@ -87,10 +87,10 @@ class TextViewComponent @JvmOverloads constructor(
     }
 
 
-    private fun TextStyle.toTextStyle() = when (this) {
-        TextStyle.BOLD -> Typeface.BOLD
-        TextStyle.ITALIC -> Typeface.ITALIC
-        TextStyle.NORMAL -> Typeface.NORMAL
+    private fun DynamicTextStyle.toTextStyle() = when (this) {
+        DynamicTextStyle.BOLD -> Typeface.BOLD
+        DynamicTextStyle.ITALIC -> Typeface.ITALIC
+        DynamicTextStyle.NORMAL -> Typeface.NORMAL
     }
 
     class InternalLinkMovementMethod(
