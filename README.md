@@ -1,3 +1,9 @@
+
+## DEPRECATED 
+ Now the evolution of the new version is [CraftD](https://github.com/CodandoTV/CraftD)
+
+
+
 # DynamicView
 
 This library uses Server Driven Ui concepts to help developer to create screens on the Android platform
